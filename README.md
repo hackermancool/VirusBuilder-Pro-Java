@@ -1,5 +1,5 @@
 # VirusBuilder Pro Java
-A high-tech cross-platform virus creation tool written in Java that generates matching Batch and Shell files.
+A high-tech cross-platform virus creation tool written in Java that generates matching Batch and Shell viruses.
 
 ## Requirements
 **Java SE 11+**
