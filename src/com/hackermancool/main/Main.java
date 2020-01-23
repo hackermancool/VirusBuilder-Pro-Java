@@ -1,3 +1,4 @@
+// Created by hackermancool on 20/01/2020.
 package com.hackermancool.main;
 
 import java.awt.EventQueue;
@@ -78,7 +79,7 @@ public class Main {
 		JList<String> componentList = new JList<String>();
 		componentList.setModel(new AbstractListModel<String>() {
 			private static final long serialVersionUID = 6294122823847344145L;
-			String[] values = new String[] {"Title", "Colour (Windows Only)", "Echo Text to Screen", "Shutdown", "Restart", "Hibernate", "Wait", "Open CMD (Windows Only)", "Open Notepad/Default Text Editor"};
+			String[] values = new String[] {"Title", "Colour (Windows Only)", "Echo Text to Screen", "Shutdown", "Restart", "Hibernate", "Wait", "Open CMD (Windows Only)", "Open Notepad (Windows Only)"};
 			public int getSize() {
 				return values.length;
 			}
@@ -152,7 +153,7 @@ public class Main {
 					break;
 				case 5:
 					// Add a hibernate to batchFile and shellFile
-					batchFile += "shutdown /h /f /t " + field2TextField.getText() + " /c \"" + field1TextField.getText() + "\"\n";
+					batchFile += "shutdown /h\n";
 					shellFile += "halt || pm-suspend\n";
 					break;
 				case 6:
@@ -236,15 +237,20 @@ public class Main {
 					break;
 				case 3:
 				case 4:
-				case 5:
-					// Set field labels for shutdown/restart/hibernate
+					// Set field labels for shutdown/restart
 					field1Label.setText("Text (Windows Only):");
 					field2Label.setText("Timer in seconds (Windows Only):");
-					// Show fields required for shutdown/restart/hibernate
+					// Show fields required for shutdown/restart
 					field1Label.setVisible(true);
 					field1TextField.setVisible(true);
 					field2Label.setVisible(true);
 					field2TextField.setVisible(true);
+					break;
+				case 5:
+					// Set extra info for hibernate
+					extraInfoLabel.setText("There are no arguments for this virus component.");
+					// Show required fields for hibernate
+					extraInfoLabel.setVisible(true);
 					break;
 				case 6:
 					// Set field labels for wait
